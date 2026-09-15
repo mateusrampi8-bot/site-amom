@@ -1,0 +1,663 @@
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELTRIX CONCEITO — Streetwear Masculino Criciúma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0f4d52; --teal-dark:#082e31; --orange:#ff7a2f; --black:#0a0a0b; --paper:#f6f7f6; --white:#fff;
+  --font-display:"Josefin Sans",sans-serif; --font-body:"Poppins",sans-serif;
+  --gap:clamp(1.5rem,4vw,3rem); --container:min(92vw,1280px);
+  --transition:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--black);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:none;cursor:pointer}
+ul{list-style:none}
+
+/* ===== UTILITÁRIOS ===== */
+.container{width:var(--container);margin-inline:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.section{padding-block:var(--gap)}
+.section--dark{background:var(--teal-dark);color:var(--white)}
+.section-number{font-family:var(--font-display);font-weight:200;font-size:clamp(6rem,15vw,14rem);line-height:1;letter-spacing:-.04em;opacity:.08;color:currentColor}
+.section-title{font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:.15em;text-transform:uppercase;line-height:1.1}
+.section-text{font-weight:300;font-size:clamp(1rem,2vw,1.25rem);max-width:55ch}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;transition:transform .3s var(--transition),background .3s,box-shadow .3s}
+.btn--orange{background:var(--orange);color:var(--black);box-shadow:0 4px 24px -4px var(--orange)}
+.btn--orange:hover{transform:translateY(-2px);box-shadow:0 8px 32px -4px var(--orange)}
+.btn--ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.3)}
+.btn--ghost:hover{background:rgba(255,255,255,.08);border-color:var(--orange);color:var(--orange)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center}
+.split--reverse{direction:rtl}.split--reverse > *{direction:ltr}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.card{position:relative;overflow:hidden;background:var(--black);border-radius:0;transition:transform .4s var(--transition),box-shadow .4s}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7));opacity:0;transition:opacity .4s}
+.card:hover::before{opacity:1}
+.card-inner{position:relative;z-index:1;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px}
+.card-title{font-family:var(--font-display);font-weight:300;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.card-sub{font-weight:300;font-size:.9rem;color:rgba(255,255,255,.6);margin-top:.4rem}
+.numbers-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.stat{padding:1.5rem 1rem}
+.stat-value{font-family:var(--font-display);font-weight:200;font-size:clamp(3rem,6vw,5rem);line-height:1;color:var(--orange)}
+.stat-label{font-weight:300;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.4rem}
+.footer{background:var(--black);color:var(--white);padding-block:4rem 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.footer-brand .logo{font-family:var(--font-display);font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.2em;text-transform:uppercase;color:var(--white)}
+.footer-brand p{font-weight:300;margin-top:1rem;color:rgba(255,255,255,.5);max-width:30ch}
+.footer-title{font-family:var(--font-display);font-weight:300;font-size:1.1rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
+.footer-links li{margin-bottom:.6rem}
+.footer-links a{font-weight:300;color:rgba(255,255,255,.6);transition:color .3s}
+.footer-links a:hover{color:var(--orange)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:3rem;padding-top:2rem;display:flex;justify-content:space-between;align-items:center;font-weight:300;font-size:.85rem;color:rgba(255,255,255,.4)}
+
+/* ===== NAVBAR ===== */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:background .4s var(--transition),padding .3s,box-shadow .3s}
+.navbar.scrolled{background:rgba(8,46,49,.98);box-shadow:0 4px 32px -8px rgba(0,0,0,.4);padding:.8rem 0;backdrop-filter:blur(12px)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--font-display);font-weight:300;font-size:1.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white)}
+.nav-links{display:flex;gap:3rem}
+.nav-links a{font-weight:300;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);transition:color .3s,opacity .3s;position:relative}
+.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--orange);transition:width .3s var(--transition)}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:none;align-items:center;gap:.6rem}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;width:28px;height:20px;justify-content:center;position:relative;z-index:1001}
+.mobile-toggle span{display:block;height:2px;background:var(--white);border-radius:2px;transition:transform .3s var(--transition),opacity .3s}
+.mobile-toggle.active span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.mobile-toggle.active span:nth-child(2){opacity:0}
+.mobile-toggle.active span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+/* ===== HERO SLIDER ===== */
+.hero{position:relative;height:100vh;min-height:700px;overflow:hidden}
+.hero-slides{position:absolute;inset:0;display:flex;transition:transform 1s var(--transition)}
+.hero-slide{flex:0 0 100%;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2rem}
+.hero-slide::before{content:"";position:absolute;inset:0;background:rgba(8,46,49,.55);z-index:1}
+.hero-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transform:scale(1.08);transition:transform 8s var(--transition)}
+.hero-slide.active img{transform:scale(1)}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-headline{font-family:var(--font-display);font-weight:200;font-size:clamp(2.5rem,6vw,5.5rem);letter-spacing:.12em;text-transform:uppercase;line-height:1.05;color:var(--white);margin-bottom:1.5rem;animation:fadeUp 1s var(--transition) backwards}
+.hero-sub{font-weight:300;font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,.8);max-width:50ch;margin:0 auto 2.5rem;animation:fadeUp 1s .2s var(--transition) backwards}
+.hero-cta{animation:fadeUp 1s .4s var(--transition) backwards}
+.hero-dots{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;gap:.8rem;z-index:3}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);border:2px solid transparent;transition:all .3s var(--transition);cursor:pointer}
+.hero-dot.active{background:var(--orange);border-color:var(--white);transform:scale(1.2)}
+.hero-swipe-hint{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.6);font-weight:300;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;z-index:3;animation:pulse 2s infinite}
+.hero-swipe-line{width:40px;height:1px;background:currentColor;position:relative;overflow:hidden}
+.hero-swipe-line::after{content:"";position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--orange);animation:lineRun 2s infinite}
+@keyframes lineRun{to{left:100%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* ===== MANIFESTO ===== */
+.manifesto{padding-block:clamp(4rem,10vh,8rem);text-align:center;background:var(--black);color:var(--white);position:relative;overflow:hidden}
+.manifesto::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent)}
+.manifesto-text{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,5vw,4rem);letter-spacing:.08em;line-height:1.15;max-width:80ch;margin:0 auto}
+.manifesto-text span{color:var(--orange);font-weight:300}
+
+/* ===== SPLIT SECTIONS ===== */
+.split-section{padding-block:clamp(5rem,10vh,8rem)}
+.split-visual{position:relative;aspect-ratio:4/5;overflow:hidden}
+.split-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--transition)}
+.split-visual:hover img{transform:scale(1.04)}
+.split-content{padding:2rem 0}
+.split-number{font-family:var(--font-display);font-weight:200;font-size:clamp(5rem,12vw,10rem);line-height:1;letter-spacing:-.04em;color:var(--teal);opacity:.15;margin-bottom:-2rem}
+.split-title{font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,4vw,3rem);letter-spacing:.1em;text-transform:uppercase;line-height:1.1;margin-bottom:1.5rem;color:var(--black)}
+.split-desc{font-weight:300;font-size:clamp(1rem,1.8vw,1.15rem);color:#333;max-width:50ch;margin-bottom:2rem}
+.split-section:nth-child(even) .split-number{color:var(--teal-dark)}
+
+/* ===== DIVISÕES GRID ===== */
+.divisoes{padding-block:clamp(5rem,10vh,8rem)}
+.divisoes-header{text-align:center;margin-bottom:3rem}
+.divisoes-title{font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,4vw,3rem);letter-spacing:.15em;text-transform:uppercase;color:var(--white)}
+.divisoes-sub{font-weight:300;color:rgba(255,255,255,.5);margin-top:.5rem}
+.div-card{position:relative;aspect-ratio:1/1;cursor:pointer;transform-style:preserve-3d;perspective:1000px}
+.div-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--transition),filter .6s}
+.div-card:hover .div-card-img{transform:scale(1.1);filter:brightness(.6)}
+.div-card-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;z-index:1}
+.div-card-title{font-family:var(--font-display);font-weight:300;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.1em;text-transform:uppercase;color:var(--white);transition:transform .3s}
+.div-card:hover .div-card-title{transform:translateY(-4px);color:var(--orange)}
+.div-card-tag{font-weight:300;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.4rem}
+
+/* ===== ABRANGÊNCIA ===== */
+.abrangencia{padding-block:clamp(5rem,10vh,8rem);background:var(--black);color:var(--white);overflow:hidden}
+.abrangencia-track{display:flex;gap:3rem;animation:scrollLoop 30s linear infinite}
+.abrangencia-item{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:.8rem;min-width:180px;opacity:.6;transition:opacity .4s,transform .4s}
+.abrangencia-item:hover{opacity:1;transform:scale(1.05)}
+.abrangencia-dot{width:14px;height:14px;border-radius:50%;background:var(--teal);border:2px solid var(--orange);transition:all .3s}
+.abrangencia-item:hover .abrangencia-dot{background:var(--orange);box-shadow:0 0 20px var(--orange)}
+.abrangencia-label{font-family:var(--font-display);font-weight:300;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap}
+.abrangencia-arrow{color:rgba(255,255,255,.3);font-size:1.5rem;align-self:center}
+@keyframes scrollLoop{to{transform:translateX(-50%)}}
+
+/* ===== NUMBERS STRIP (light bg) ===== */
+.strip{background:var(--paper);padding-block:4rem}
+.strip .stat-value{color:var(--teal)}
+.strip .stat-label{color:#666}
+
+/* ===== COMPROMISSO ===== */
+.compromisso{padding-block:clamp(5rem,10vh,8rem);background:var(--teal);color:var(--white);text-align:center}
+.compromisso-title{font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,4vw,3rem);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.compromisso-text{font-weight:300;font-size:clamp(1rem,2vw,1.2rem);max-width:60ch;margin:0 auto 3rem;color:rgba(255,255,255,.8)}
+.compromisso-points{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:900px;margin:0 auto 3rem;text-align:left}
+.point{padding:1.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.point-title{font-family:var(--font-display);font-weight:300;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+.point-desc{font-weight:300;font-size:.9rem;color:rgba(255,255,255,.6)}
+
+/* ===== CTA BAND ===== */
+.cta-band{padding:4rem 0;background:var(--black);text-align:center}
+.cta-band-title{font-family:var(--font-display);font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem}
+.cta-band .btn{font-size:.9rem}
+
+/* ===== FLOATING WHATSAPP ===== */
+.float-whatsapp{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;align-items:center;justify-content:center;width:64px;height:64px;background:var(--orange);border-radius:50%;box-shadow:0 8px 32px -4px var(--orange);transition:transform .3s var(--transition),box-shadow .3s;animation:floatBounce 3s ease-in-out infinite}
+.float-whatsapp:hover{transform:scale(1.1);box-shadow:0 12px 40px -4px var(--orange)}
+.float-whatsapp svg{width:32px;height:32px;color:var(--black)}
+@keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ===== COUNTDOWN ===== */
+.countdown{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;min-width:70px}
+.countdown-value{font-family:var(--font-display);font-weight:200;font-size:clamp(2.5rem,5vw,4rem);line-height:1;color:var(--orange)}
+.countdown-label{font-weight:300;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s var(--transition),transform .8s var(--transition)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+
+/* ===== MOBILE ===== */
+@media (max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split--reverse{direction:ltr}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .numbers-strip{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2rem;text-align:center}
+  .footer-bottom{flex-direction:column;gap:1rem}
+  .compromisso-points{grid-template-columns:1fr}
+  .nav-links{position:fixed;top:0;right:0;bottom:0;width:75vw;max-width:320px;background:var(--teal-dark);flex-direction:column;justify-content:center;align-items:center;gap:2rem;transform:translateX(100%);transition:transform .4s var(--transition)}
+  .nav-links.active{transform:none}
+  .nav-links a{font-size:1.4rem}
+  .mobile-toggle{display:flex}
+  .nav-cta{display:flex}
+  .hero-swipe-hint{display:none}
+  .abrangencia-track{animation:none;overflow-x:auto;flex-wrap:nowrap;padding-bottom:1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .abrangencia-item{scroll-snap-align:center}
+}
+@media (max-width:600px){
+  .grid-4{grid-template-columns:1fr}
+  .numbers-strip{grid-template-columns:1fr}
+  :root{--gap:2rem}
+  .float-whatsapp{bottom:1rem;right:1rem;width:56px;height:56px}
+  .hero{min-height:100vh}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Principal">
+  <div class="container nav-inner">
+    <a href="#top" class="logo" aria-label="Veltrix Conceito - Início">Veltrix Conceito</a>
+    <ul class="nav-links" id="navLinks" role="menubar">
+      <li role="none"><a href="#manifesto" role="menuitem">Manifesto</a></li>
+      <li role="none"><a href="#divisoes" role="menuitem">Divisões</a></li>
+      <li role="none"><a href="#abrangencia" role="menuitem">Abrangência</a></li>
+      <li role="none"><a href="#compromisso" role="menuitem">Compromisso</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#" class="btn btn--orange" id="navWhatsApp" aria-label="Falar no WhatsApp">WhatsApp</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO SLIDER ===== -->
+<header class="hero" id="hero" role="region" aria-label="Destaques">
+  <div class="hero-slides" id="heroSlides">
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1920&q=80" alt="" loading="eager">
+      <div class="hero-content">
+        <h1 class="hero-headline">O drop acaba.<br>O conceito fica.</h1>
+        <p class="hero-sub">Coleções pequenas. Fechadas. Feitas pra quem entende que estilo não se repete.</p>
+        <a href="#" class="btn btn--orange" data-whatsapp-text="Quero saber mais sobre o drop atual da Veltrix">Ver Drop Atual</a>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1920&q=80" alt="" loading="lazy">
+      <div class="hero-content">
+        <h1 class="hero-headline">Entrega no mesmo dia.<br>Em Criciúma.</h1>
+        <p class="hero-sub">Motoboy na porta. Rastreado pro Brasil inteiro. Sem burocracia.</p>
+        <a href="#" class="btn btn--orange" data-whatsapp-text="Quero comprar com entrega mesma dia em Criciúma">Comprar Agora</a>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80" alt="" loading="lazy">
+      <div class="hero-content">
+        <h1 class="hero-headline">Autêntico.<br>Ou nada.</h1>
+        <p class="hero-sub">Procedência verificada. Peça escolhida. Peça vendida. Peça sua.</p>
+        <a href="#" class="btn btn--orange" data-whatsapp-text="Quero garantir minha peça autêntica da Veltrix">Garantir a Minha</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots" role="tablist" aria-label="Navegação dos slides">
+    <button class="hero-dot active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+    <button class="hero-dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+    <button class="hero-dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+  </div>
+  <div class="hero-swipe-hint" aria-hidden="true">
+    <span>Deslize para descobrir</span>
+    <div class="hero-swipe-line"></div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== MANIFESTO ===== -->
+  <section class="manifesto reveal" id="manifesto" aria-labelledby="manifestoTitle">
+    <p class="manifesto-text" id="manifestoTitle">A Veltrix é uma <span>casa de conceito</span> em streetwear</p>
+  </section>
+
+  <!-- ===== SPLIT 01 ===== -->
+  <section class="split-section reveal" aria-labelledby="split1Title">
+    <div class="container split">
+      <div class="split-content">
+        <div class="section-number">01</div>
+        <h2 class="split-title" id="split1Title">Drops fechados.<br>Sem reposição.</h2>
+        <p class="split-desc">Cada coleção nasce com data pra acabar. Produzimos quantidade exata. Quem chega primeiro, leva. O resto é história.</p>
+        <a href="#" class="btn btn--orange" data-whatsapp-text="Quero ser avisado do próximo drop da Veltrix">Quero Aviso do Próximo</a>
+      </div>
+      <div class="split-visual">
+        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?w=800&q=80" alt="Modelo usando streetwear Veltrix" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPLIT 02 ===== -->
+  <section class="split-section reveal" aria-labelledby="split2Title">
+    <div class="container split split--reverse">
+      <div class="split-content">
+        <div class="section-number">02</div>
+        <h2 class="split-title" id="split2Title">Laboratório real.<br>Review honesto.</h2>
+        <p class="split-desc">Nossa série "Vale a Pena Mesmo?" testa peça por peça. Caimento, tecido, durabilidade. Sem patrocínio oculto. Só verdade na cara.</p>
+        <a href="#" class="btn btn--orange" data-whatsapp-text="Quero ver os reviews do Laboratório Veltrix">Ver Reviews</a>
+      </div>
+      <div class="split-visual">
+        <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=800&q=80" alt="Review de produto Veltrix" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIVISÕES GRID ===== -->
+  <section class="divisoes section--dark reveal" id="divisoes" aria-labelledby="divisoesTitle">
+    <div class="container">
+      <header class="divisoes-header">
+        <h2 class="divisoes-title" id="divisoesTitle">Nossas Divisões</h2>
+        <p class="divisoes-sub">Quatro pilares. Um só padrão.</p>
+      </header>
+      <div class="grid-4" id="divisoesGrid">
+        <!-- Cards gerados via JS para facilitar manutenção -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABRANGÊNCIA ===== -->
+  <section class="abrangencia reveal" id="abrangencia" aria-labelledby="abrangenciaTitle">
+    <div class="container" style="max-width:1400px">
+      <header style="text-align:center;margin-bottom:3rem">
+        <h2 class="section-title" id="abrangenciaTitle" style="color:var(--white)">Abrangência</h2>
+        <p style="color:rgba(255,255,255,.5);font-weight:300;max-width:50ch;margin:1rem auto 0">Da rua pra todo Brasil</p>
+      </header>
+      <div class="abrangencia-track" id="abrangenciaTrack" role="list" aria-label="Cidades e regiões atendidas">
+        <!-- Itens gerados via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NUMBERS STRIP ===== -->
+  <section class="strip reveal" aria-label="Números da Veltrix">
+    <div class="container numbers-strip">
+      <div class="stat">
+        <div class="stat-value" id="statDrop">03</div>
+        <div class="stat-label">Drop Atual</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="statSold">1.247</div>
+        <div class="stat-label">Peças Vendidas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="statAuth">100%</div>
+        <div class="stat-label">Procedência Verificada</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="statDays">365</div>
+        <div class="stat-label">Dias de Atendimento</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPROMISSO ===== -->
+  <section class="compromisso reveal" id="compromisso" aria-labelledby="compromissoTitle">
+    <div class="container">
+      <h2 class="compromisso-title" id="compromissoTitle">Compromisso</h2>
+      <p class="compromisso-text">Autêntico ou nada. Não existe meio termo quando o assunto é originalidade.</p>
+      <div class="compromisso-points">
+        <article class="point"><h3 class="point-title">Origem Garantida</h3><p class="point-desc">Toda peça passa por verificação rigorosa. Nota fiscal, etiqueta, acabamento. Zero réplica.</p></article>
+        <article class="point"><h3 class="point-title">Troca Simples</h3><p class="point-desc">Não serviu? Troca na hora em Criciúma. No Brasil, logística reversa por nossa conta.</p></article>
+        <article class="point"><h3 class="point-title">Suporte Direto</h3><p class="point-desc">Fala com a gente no WhatsApp. Sem bot, sem menu infinito. Pessoa real, resposta real.</p></article>
+      </div>
+      <div class="countdown" aria-live="polite" aria-label="Contagem regressiva para o próximo drop">
+        <div class="countdown-unit"><span class="countdown-value" id="cdDays">00</span><span class="countdown-label">Dias</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cdHours">00</span><span class="countdown-label">Horas</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cdMinutes">00</span><span class="countdown-label">Min</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cdSeconds">00</span><span class="countdown-label">Seg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band reveal" aria-labelledby="ctaTitle">
+    <div class="container">
+      <h2 class="cta-band-title" id="ctaTitle">O próximo drop não espera.</h2>
+      <a href="#" class="btn btn--orange" data-whatsapp-text="Quero garantir minha peça no próximo drop da Veltrix">Entrar no Grupo VIP</a>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="logo">Veltrix Conceito</p>
+      <p>Streetwear masculino com conceito. Criciúma - SC. Entrega mesma dia na cidade. Envio rastreado pro Brasil. Venda só no WhatsApp e Direct.</p>
+    </div>
+    <nav>
+      <h3 class="footer-title">Contato</h3>
+      <ul class="footer-links">
+        <li><a href="#" id="footerWhatsApp" data-whatsapp-text="Olá, vim pelo site da Veltrix">WhatsApp: (48) 99999-0000</a></li>
+        <li><a href="https://instagram.com/veltrix_conceito" target="_blank" rel="noopener">Instagram: @veltrix_conceito</a></li>
+        <li><a href="#">Criciúma - SC, Brasil</a></li>
+      </ul>
+    </nav>
+    <nav>
+      <h3 class="footer-title">Navegação</h3>
+      <ul class="footer-links">
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#divisoes">Divisões</a></li>
+        <li><a href="#abrangencia">Abrangência</a></li>
+        <li><a href="#compromisso">Compromisso</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2025 Veltrix Conceito. Todos os direitos reservados.</p>
+    <p>CNPJ: 00.000.000/0001-00</p>
+  </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="#" class="float-whatsapp" id="floatWhatsApp" aria-label="Falar no WhatsApp" title="Falar no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.472.099-.174.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.57-.076 1.758-.712 2.006-1.413.248-.7.373-1.349.373-1.499 0-.149-.274-.223-.448-.322-.167-.098-.357-.147-.548-.147zM12 2C6.477 2 2 6.477 2 12c0 2.418.93 4.614 2.502 6.285l-.92 3.315 3.545-.86c1.227.886 2.666 1.387 4.182 1.387 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+</a>
+
+<script>
+// ===== CONFIGURAÇÕES CENTRAIS =====
+// ALTERAR AQUI: número do WhatsApp (formato: 55 + DDD + número, sem espaços ou traços)
+const WHATSAPP_NUMBER = '5548999990000';
+// ALTERAR AQUI: data do próximo drop (ISO string: 'YYYY-MM-DDTHH:mm:ss')
+const NEXT_DROP_DATE = new Date('2025-12-20T20:00:00').getTime(); // Ex: 20 de dez às 20h
+
+// Dados das divisões
+const DIVISOES = [
+  { title: 'Streetwear', tag: 'Camisetas, Moletons, Calças', img: 'https://images.unsplash.com/photo-1521334884684-d80222895322?w=600&q=80', text: 'Quero ver a linha Streetwear da Veltrix' },
+  { title: 'Shorts & Calçados', tag: 'Boardshorts, Tênis, Chinelos', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80', text: 'Quero ver Shorts e Calçados da Veltrix' },
+  { title: 'Acessórios', tag: 'Bonés, Bolsas, Meias, Correntes', img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80', text: 'Quero ver Acessórios da Veltrix' },
+  { title: 'Laboratório', tag: 'Série "Vale a Pena Mesmo?"', img: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&q=80', text: 'Quero ver os reviews do Laboratório Veltrix' }
+];
+
+// Dados de abrangência
+const ABRANGENCIA = [
+  { label: 'Criciúma' },
+  { label: 'Região Sul' },
+  { label: 'São Paulo' },
+  { label: 'Brasil' },
+  // Duplicados para loop infinito suave
+  { label: 'Criciúma' },
+  { label: 'Região Sul' },
+  { label: 'São Paulo' },
+  { label: 'Brasil' }
+];
+
+// ===== HELPERS =====
+const $ = (sel, ctx=document) => ctx.querySelector(sel);
+const $$ = (sel, ctx=document) => [...ctx.querySelectorAll(sel)];
+
+function buildWhatsAppLink(customText) {
+  const base = `https://wa.me/${WHATSAPP_NUMBER}`;
+  const text = encodeURIComponent(customText || 'Olá, vim pelo site da Veltrix Conceito');
+  return `${base}?text=${text}`;
+}
+
+function applyWhatsAppLinks() {
+  $$('[data-whatsapp-text]').forEach(el => {
+    el.href = buildWhatsAppLink(el.dataset.whatsappText);
+  });
+  // Footer e float
+  $('#footerWhatsApp').href = buildWhatsAppLink($('#footerWhatsApp').dataset.whatsappText);
+  $('#floatWhatsApp').href = buildWhatsAppLink('Quero falar com a Veltrix Conceito');
+}
+
+// ===== NAVBAR SCROLL =====
+const navbar = $('#navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+}, {passive:true});
+
+// ===== MOBILE MENU =====
+const toggle = $('#mobileToggle');
+const navLinks = $('#navLinks');
+toggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('active');
+  toggle.classList.toggle('active', open);
+  toggle.setAttribute('aria-expanded', open);
+});
+$$('#navLinks a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('active');
+  toggle.classList.remove('active');
+  toggle.setAttribute('aria-expanded', 'false');
+}));
+
+// ===== HERO SLIDER =====
+const slidesContainer = $('#heroSlides');
+const dots = $$('.hero-dot');
+let currentSlide = 0;
+let slideInterval;
+
+function goToSlide(index) {
+  currentSlide = (index + dots.length) % dots.length;
+  slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+    dot.setAttribute('aria-selected', i === currentSlide);
+  });
+}
+
+function nextSlide() { goToSlide(currentSlide + 1); }
+
+function startAutoplay() {
+  slideInterval = setInterval(nextSlide, 6000);
+}
+function stopAutoplay() { clearInterval(slideInterval); }
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    goToSlide(i);
+    stopAutoplay(); startAutoplay();
+  });
+});
+
+$('#hero').addEventListener('mouseenter', stopAutoplay);
+$('#hero').addEventListener('mouseleave', startAutoplay);
+
+// Touch swipe support
+let touchStartX = 0;
+$('#hero').addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+$('#hero').addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    goToSlide(currentSlide + (diff > 0 ? 1 : -1));
+    stopAutoplay(); startAutoplay();
+  }
+}, {passive:true});
+
+startAutoplay();
+
+// ===== INTERSECTION OBSERVER REVEAL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+
+$$('.reveal').forEach(el => observer.observe(el));
+
+// ===== 3D TILT ON DIVISÕES CARDS =====
+function initTiltCards() {
+  const cards = $$('.div-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8; // max 8deg
+      const rotateY = ((x - centerX) / centerX) * 8;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+    });
+    // Touch fallback: no tilt, just click
+    card.addEventListener('click', () => {
+      const link = buildWhatsAppLink(card.dataset.whatsappText);
+      window.open(link, '_blank');
+    });
+  });
+}
+
+// ===== RENDER DIVISÕES =====
+const divisoesGrid = $('#divisoesGrid');
+DIVISOES.forEach((d, i) => {
+  const card = document.createElement('article');
+  card.className = 'div-card reveal';
+  card.style.transitionDelay = `${i * 0.1}s`;
+  card.dataset.whatsappText = d.text;
+  card.innerHTML = `
+    <img class="div-card-img" src="${d.img}" alt="" loading="lazy">
+    <div class="div-card-content">
+      <h3 class="div-card-title">${d.title}</h3>
+      <span class="div-card-tag">${d.tag}</span>
+    </div>
+  `;
+  divisoesGrid.appendChild(card);
+});
+// Observe new cards
+$$('.div-card').forEach(el => observer.observe(el));
+initTiltCards();
+
+// ===== RENDER ABRANGÊNCIA =====
+const track = $('#abrangenciaTrack');
+ABRANGENCIA.forEach(item => {
+  const el = document.createElement('div');
+  el.className = 'abrangencia-item';
+  el.setAttribute('role', 'listitem');
+  el.innerHTML = `<div class="abrangencia-dot" aria-hidden="true"></div><span class="abrangencia-label">${item.label}</span>`;
+  track.appendChild(el);
+});
+// Add arrows between items (except last)
+$$('.abrangencia-item', track).forEach((el, i) => {
+  if (i < ABRANGENCIA.length - 1) {
+    const arrow = document.createElement('span');
+    arrow.className = 'abrangencia-arrow';
+    arrow.innerHTML = '→';
+    arrow.setAttribute('aria-hidden', 'true');
+    el.appendChild(arrow);
+  }
+});
+
+// Pause animation on hover
+track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+
+// ===== COUNTDOWN =====
+const cdElements = {
+  days: $('#cdDays'),
+  hours: $('#cdHours'),
+  minutes: $('#cdMinutes'),
+  seconds: $('#cdSeconds')
+};
+
+function updateCountdown() {
+  const now = Date.now();
+  const diff = NEXT_DROP_DATE - now;
+  if (diff <= 0) {
+    Object.values(cdElements).forEach(el => el.textContent = '00');
+    return;
+  }
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const s = Math.floor((diff % (1000*60)) / 1000);
+  cdElements.days.textContent = String(d).padStart(2, '0');
+  cdElements.hours.textContent = String(h).padStart(2, '0');
+  cdElements.minutes.textContent = String(m).padStart(2, '0');
+  cdElements.seconds.textContent = String(s).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===== SMOOTH SCROLL FOR ANCHORS =====
+$$('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      history.pushState(null, '', a.getAttribute('href'));
+    }
+  });
+});
+
+// ===== INIT WHATSAPP LINKS =====
+applyWhatsAppLinks();
+
+// ===== PERFORMANCE: Reduce motion =====
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (prefersReduced.matches) {
+  document.documentElement.style.setProperty('--transition', 'linear');
+  track.style.animation = 'none';
+  track.style.display = 'flex';
+  track.style.flexWrap = 'wrap';
+  track.style.justifyContent = 'center';
+  track.style.gap = '2rem';
+  $$('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+console.log('%cVELTRIX CONCEITO', 'font-family:Josefin Sans;font-size:2rem;color:#ff7a2f;letter-spacing:.1em', 'Site carregado. Altere WHATSAPP_NUMBER e NEXT_DROP_DATE no topo do script.');
+</script>
+</body>
+</html>
